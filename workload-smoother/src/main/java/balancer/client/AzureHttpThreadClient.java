@@ -12,11 +12,9 @@ import org.springframework.web.client.RestTemplate;
 
 import balancer.configuration.SpringContext;
 import balancer.response.AzureFactorialResponse;
-import util.Constant;
 
 public class AzureHttpThreadClient extends AbstractThreadClient implements Callable {
     private static final String AZURE_FACTORIAL_URL = SpringContext.getProperties("azure.factorial.url");
-    private static final String X_FUNCTION_VALUE = SpringContext.getProperties("azure.x.function.key");
 
     @Override
     public ResponseEntity<AzureFactorialResponse> call() throws Exception {
@@ -34,7 +32,6 @@ public class AzureHttpThreadClient extends AbstractThreadClient implements Calla
     private HttpHeaders createHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set(Constant.X_FUNCTION_KEY, X_FUNCTION_VALUE);
         return headers;
     }
 }
