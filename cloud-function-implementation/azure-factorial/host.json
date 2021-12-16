@@ -7,8 +7,8 @@
   },
   "extensions": {
         "http": {
-            "maxConcurrentRequests": 1,
-            "maxOutstandingRequests": 1,
+            "maxConcurrentRequests": 100,
+            "maxOutstandingRequests": 100,
             "dynamicThrottlesEnabled": true
         }
     }
