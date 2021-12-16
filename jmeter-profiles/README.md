@@ -31,7 +31,7 @@ Once the test is completed, summary report window will show the result (can choo
 
 5. Graph Results
 
-The results can be represented as graph using Graph Results window. In this result, you can view: Number of Samples (requests), Throughput, Average and Median response time and Standard deviation (Deviation).
+The results can be represented as graph using Graph Results window. In this result, user can view: Number of Samples (requests), Throughput, Average and Median response time and Standard deviation (Deviation).
 ![Graph Results](image/direct/03-graph-results.png)
 
 6. View Results Tree

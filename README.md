@@ -8,26 +8,26 @@ This repository contains:
 ## Software Requirement
 To build, compile and run the cloud function and workload smoother, user needs the following software:
 * [Java version 8](https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html): used to build the cloud function and workload smoother. The experiment were conducted using Java 8 - 1.8.0_281.
-* [Apache Maven](https://maven.apache.org): Maven is used to package the application for uploading the source code to AWS Console or via command line interface (IBM and Azure). The experiments were conducted on Maven version 3.6.3.
+* [Apache Maven](https://maven.apache.org): Maven is used to package the application for uploading the source code to AWS Console or via Command Line Interface (IBM and Azure). The experiments were conducted on Maven version 3.6.3.
 * [Apache JMeter](https://jmeter.apache.org): JMeter is used to load test the cloud function as well as (cloud function + workload smoother). The experiments were conducted using JMeter version 5.2.1.
 * Code editor: user can use code editor such as Eclipse or IntelliJ to view the source code and/or make modification.
 
 ## Hardware Requirement
 Cloud function will be run on cloud environment hence local hardware does not have strict requirement, as long as the user's computer can build and package the source code.
 
-Nevertheless, if user plans to run JMeter on a local machine to load test the cloud function, it should be run on a intermediate to advance machine, for example: Intel Core i5 and above to ensure that JMeter can create expected number of threads in the test. As a double check, when load testing the cloud function using JMeter, user should install and run the [VisualVM](https://visualvm.github.io) to ensure JMeter actually has created expected number of threads.
+Nevertheless, if user plans to run JMeter on a local machine to load test the cloud function, it should be run on a intermediate to advanced machine, for example: Intel Core i5 and above to ensure that JMeter can create expected number of threads in the test. As a double check, when load testing the cloud function using JMeter, user should install and run the [VisualVM](https://visualvm.github.io) to ensure JMeter actually has created expected number of threads.
 
 # Artifact Composition
 This artifact comprises of three child-artifacts:
 1. [Cloud Function Implementation](cloud-function-implementation)
-This folder contains the business logic of factorial calculation cloud function. Each cloud platform has specific signature that cloud function should comply in order to work properly. Furthermore, each cloud function also include the mechanism to retrieve the cloud function instance.
+This folder contains the business logic of factorial calculation cloud function. Each cloud platform has specific signature that cloud function should comply in order to work properly. Furthermore, each cloud function also include the mechanism to retrieve the cloud function instance identifier.
 * AWS Lambda: use logstreamname as the instance ID
 * IBM and Azure Cloud Function: cloud function self-generate the UUID ([UUID.randomUUID()](https://docs.oracle.com/javase/7/docs/api/java/util/UUID.html)) if it finds that the running cloud function instance is newly provisioned.
 
 Within each cloud function by cloud platform, there will be README file which contains the build and deploy commands.
 
 2. [Workload Smoother](workload-smoother)
-This folder contains the source code implementation of a Spring Boot Application implemented in Java. 
+This folder contains the source code implementation of a Workload Smoother Spring Boot Application implemented in Java. 
 
 The workload smoother is deployed in front of target systems to smooth the workload by introducing queues to ensure excessive requests are queued for later processing and not returned as error.
 
