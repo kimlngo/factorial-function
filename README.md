@@ -9,7 +9,7 @@ This repository contains:
 To build, compile and run the cloud function and workload smoother, user needs the following software:
 * [Java version 8](https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html): used to build the cloud function and workload smoother. The experiment were conducted using Java 8 - 1.8.0_281.
 * [Apache Maven](https://maven.apache.org): Maven is used to package the application for uploading the source code to AWS Console or via Command Line Interface (IBM and Azure). The experiments were conducted on Maven version 3.6.3.
-* [Apache JMeter](https://jmeter.apache.org): JMeter is used to load test the cloud function as well as (cloud function + workload smoother). The experiments were conducted using JMeter version 5.2.1.
+* [Apache JMeter](https://jmeter.apache.org): JMeter is used to load test the cloud function as well as (cloud function + workload smoother). The instruction to install JMeter can be found at [Step to install JMeter](jmeter-profiles/document/Step-To-Install-JMeter.pdf).The experiments were conducted using JMeter version 5.2.1.
 * Code editor: user can use code editor such as Eclipse or IntelliJ to view the source code and/or make modification.
 
 ## Hardware Requirement
@@ -78,6 +78,9 @@ Once this is completed. We should get the results of FaaS system under saturatio
 
 Steps to conduct experiment with workload smoother:
 * Deploy testing cloud functions
+	* AWS Lambda function: follow the [How-To-Deploy-AWS-Lambda-Function](cloud-function-implementation/aws-factorial/document/How-To-Deploy-AWS-Lambda-Function.pdf) to deploy the cloud function.
+	* IBM cloud function: use the command line in the [README](cloud-function-implementation/ibm-factorial/README.md)
+	* Azure cloud function: use the command line in the [README](cloud-function-implementation/azure-factorial/README.md)
 * Build the workload smoother.
 * Start up an EC2 instance (in our test, we used t2.large to ensure no potential bottleneck).
 * Copy the **workload.smoother-1.0.0-SNAPSHOT.jar** to the EC2 instance and start the application.
